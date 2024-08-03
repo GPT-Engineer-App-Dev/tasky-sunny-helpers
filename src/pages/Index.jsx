@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { X } from "lucide-react";
+import { X, PartyPopper } from "lucide-react";
+import confetti from "canvas-confetti";
 
 const Index = () => {
   const [todos, setTodos] = useState([]);
@@ -39,7 +40,17 @@ const Index = () => {
             placeholder="Add a new todo"
             className="mr-2"
           />
-          <Button onClick={addTodo} className="bg-green-500 hover:bg-green-600 text-white">Add</Button>
+          <Button onClick={addTodo}>Add</Button>
+        </div>
+        <div className="mb-4">
+          <Button
+            onClick={() => confetti()}
+            className="w-full"
+            variant="outline"
+          >
+            <PartyPopper className="mr-2 h-4 w-4" />
+            Celebrate!
+          </Button>
         </div>
         <ul className="space-y-2">
           {todos.map((todo) => (
